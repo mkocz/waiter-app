@@ -1,11 +1,9 @@
-import { useDispatch, useSelector } from "react-redux";
-import { fetchTables, getTables } from "../../redux/tablesRedux";
-import { useEffect } from "react";
+import { useSelector } from "react-redux";
+import { getTables } from "../../redux/tablesRedux";
 import { Button, ListGroup } from "react-bootstrap";
 import { Link } from "react-router-dom";
 
-const Tables = () => {
-
+const TableList = () => {
     const tables = useSelector(getTables);
 
     if (!tables.length) return <p>Loading...</p>;
@@ -29,5 +27,4 @@ const Tables = () => {
     );
 };
 
-export default Tables
-
+export default TableList

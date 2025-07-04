@@ -40,7 +40,6 @@ export const updateTableRequest = (table) => {
         } catch (error) {
             console.log(error)
         }
-
     }
 }
 

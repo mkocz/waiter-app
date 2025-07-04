@@ -20,7 +20,7 @@ export default NumberInput;
 
 NumberInput.propTypes = {
     id: PropTypes.string.isRequired,
-    value: PropTypes.number.isRequired,
+    value: PropTypes.number.isRequired ,
     onChange: PropTypes.func.isRequired,
     onBlur: PropTypes.func,
 };
