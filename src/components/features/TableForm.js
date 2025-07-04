@@ -64,11 +64,11 @@ const TableForm = ({ tableData }) => {
 
         try {
             await dispatch(updateTableRequest({ id, status, peopleAmount, maxPeopleAmount, bill }))
-            alert('Table details has been updated.')
+            alert('Table details have been updated.')
         }
         catch (error) {
             console.log(error)
-            alert('Table details has not been saved.')
+            alert('Table details have not been saved.')
         }
     }
 
@@ -86,7 +86,7 @@ const TableForm = ({ tableData }) => {
                 </Form.Group>
                 <Form.Group className="d-flex align-items-center gap-2 my-4">
                     <InputLabel htmlFor="peopleAmount">People:</InputLabel>
-                    <NumberInput id="peopleAmount" value={peopleAmount} onChange={handlePeopleAmountChange} onBlur={handlePeopleAmountBlur} />
+                    <NumberInput id="peopleAmount" value={peopleAmount} onChange={handlePeopleAmountChange} onBlur={handlePeopleAmountBlur} disabled={status === 'Cleaning' || status === 'Free'} />
                     <span>/</span>
                     <NumberInput id="PeopleAmount" value={maxPeopleAmount} onChange={handleMaxPeopleAmountChange} onBlur={handleMaxPeopleAmountBlur} />
                 </Form.Group>
