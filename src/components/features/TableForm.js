@@ -4,6 +4,7 @@ import { Button, Form } from "react-bootstrap";
 import { useState } from "react";
 import NumberInput from "../common/NumberInput";
 import InputLabel from "../common/InputLabel";
+import { useNavigate } from "react-router-dom";
 
 const TableForm = ({ tableData }) => {
     const id = tableData.id;
@@ -11,6 +12,7 @@ const TableForm = ({ tableData }) => {
     const [peopleAmount, setPeopleAmount] = useState(tableData.peopleAmount);
     const [maxPeopleAmount, setMaxPeopleAmount] = useState(tableData.maxPeopleAmount);
     const [bill, setBill] = useState(tableData.bill);
+    const navigate = useNavigate()
 
     const dispatch = useDispatch();
 
@@ -47,7 +49,6 @@ const TableForm = ({ tableData }) => {
         const value = e.target.value;
 
         if (Number(value) < Number(peopleAmount)) {
-
             setMaxPeopleAmount(parseInt(peopleAmount))
         }
     }
@@ -64,16 +65,14 @@ const TableForm = ({ tableData }) => {
         }
     }
 
-
-
     const handleSubmit = async (e) => {
         e.preventDefault();
-
-
 
         try {
             await dispatch(updateTableRequest({ id, status, peopleAmount, maxPeopleAmount, bill }))
             alert('Table details have been updated.')
+            navigate("/");
+
         }
         catch (error) {
             console.log(error)
