@@ -47,7 +47,7 @@ const TableForm = ({ tableData }) => {
         const value = e.target.value;
 
         if (Number(value) < Number(peopleAmount)) {
- 
+
             setMaxPeopleAmount(parseInt(peopleAmount))
         }
     }
@@ -97,7 +97,7 @@ const TableForm = ({ tableData }) => {
                     <InputLabel htmlFor="peopleAmount">People:</InputLabel>
                     <NumberInput id="peopleAmount" value={peopleAmount} onChange={handlePeopleAmountChange} onBlur={handlePeopleAmountBlur} disabled={status === 'Cleaning' || status === 'Free'} />
                     <span>/</span>
-                    <NumberInput id="PeopleAmount" value={maxPeopleAmount} onChange={handleMaxPeopleAmountChange} onBlur={handleMaxPeopleAmountBlur}  />
+                    <NumberInput id="PeopleAmount" value={maxPeopleAmount} onChange={handleMaxPeopleAmountChange} onBlur={handleMaxPeopleAmountBlur} />
                 </Form.Group>
                 {(status === 'Busy') && <Form.Group className="d-flex align-items-center gap-2 my-4">
                     <InputLabel htmlFor="bill">Bill:</InputLabel>

@@ -23,33 +23,6 @@ export const fetchTables = () => {
 export const updateTableRequest = (table) => {
     return async (dispatch) => {
 
-
-        fetch('https://jsonplaceholder.typicode.com/posts', {
-            method: 'POST',
-            body: JSON.stringify({
-                title: 'foo',
-                body: 'bar',
-                userId: 5,
-            }),
-            headers: {
-                'Content-type': 'application/json; charset=UTF-8',
-            },
-        })
-            .then((response) => response.json())
-            .then((json) => console.log(json));
-
-        const options1 = {
-            method: 'POST',
-            body: JSON.stringify({
-                title: 'foo',
-                body: 'bar',
-                userId: 5,
-            }),
-            headers: {
-                'Content-type': 'application/json; charset=UTF-8',
-            },
-        }
-
         try {
             const options = {
                 method: 'PUT',
@@ -59,8 +32,7 @@ export const updateTableRequest = (table) => {
                 body: JSON.stringify(table)
             }
             const response = await fetch('https://waiter-app-server-302bded180f5.herokuapp.com/api/tables/' + table.id, options)
-            // const response = await fetch('https://jsonplaceholder.typicode.com/posts', options1)
-
+        
             if (!response.ok) {
                 throw new Error(`HTTP error! status: ${response.status}`);
             }
