@@ -12,7 +12,7 @@ export const updateTable = payload => ({ type: UPDATE_TABLE, payload })
 
 export const fetchTables = () => {
     return (dispatch) => {
-        fetch('http://localhost:3131/api/tables')
+        fetch('https://waiter-app-server-302bded180f5.herokuapp.com/api/tables')
             .then(res => res.json())
             .then(tables => {
                 dispatch(updateTables(tables))
