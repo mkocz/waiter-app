@@ -2,6 +2,7 @@ import { Form } from "react-bootstrap";
 import PropTypes from 'prop-types';
 
 const NumberInput = (props) => {
+
     return (
         <Form.Control
             type="number"
@@ -12,6 +13,7 @@ const NumberInput = (props) => {
             value={props.value}
             onChange={props.onChange}
             onBlur={props.onBlur}
+            onInput = {props.onInput}
             disabled={props.disabled}
         />
     )
@@ -21,7 +23,7 @@ export default NumberInput;
 
 NumberInput.propTypes = {
     id: PropTypes.string.isRequired,
-    value: PropTypes.number.isRequired ,
+    value: PropTypes.number.isRequired,
     onChange: PropTypes.func.isRequired,
     onBlur: PropTypes.func,
 };

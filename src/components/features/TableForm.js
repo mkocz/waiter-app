@@ -47,6 +47,7 @@ const TableForm = ({ tableData }) => {
         const value = e.target.value;
 
         if (Number(value) < Number(peopleAmount)) {
+ 
             setMaxPeopleAmount(parseInt(peopleAmount))
         }
     }
@@ -54,13 +55,21 @@ const TableForm = ({ tableData }) => {
     const handleMaxPeopleAmountChange = (e) => {
         const value = e.target.value;
 
-        if (value >= 0 && value <= 10) {
-            setMaxPeopleAmount(parseInt(value))
+        const newValue = value.replace(/^0+/g, '')
+        console.log(value, newValue)
+
+        if (newValue >= 0 && newValue <= 10) {
+            console.log(parseInt(newValue))
+            setMaxPeopleAmount(parseInt(newValue))
         }
     }
 
+
+
     const handleSubmit = async (e) => {
         e.preventDefault();
+
+
 
         try {
             await dispatch(updateTableRequest({ id, status, peopleAmount, maxPeopleAmount, bill }))
@@ -88,7 +97,7 @@ const TableForm = ({ tableData }) => {
                     <InputLabel htmlFor="peopleAmount">People:</InputLabel>
                     <NumberInput id="peopleAmount" value={peopleAmount} onChange={handlePeopleAmountChange} onBlur={handlePeopleAmountBlur} disabled={status === 'Cleaning' || status === 'Free'} />
                     <span>/</span>
-                    <NumberInput id="PeopleAmount" value={maxPeopleAmount} onChange={handleMaxPeopleAmountChange} onBlur={handleMaxPeopleAmountBlur} />
+                    <NumberInput id="PeopleAmount" value={maxPeopleAmount} onChange={handleMaxPeopleAmountChange} onBlur={handleMaxPeopleAmountBlur}  />
                 </Form.Group>
                 {(status === 'Busy') && <Form.Group className="d-flex align-items-center gap-2 my-4">
                     <InputLabel htmlFor="bill">Bill:</InputLabel>
