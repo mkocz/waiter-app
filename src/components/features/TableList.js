@@ -14,10 +14,10 @@ const TableList = () => {
                 <ListGroup.Item
                     as="li"
                     key={table.id}
-                    className="d-flex justify-content-between align-items-start border-bottom"
+                    className="d-flex justify-content-between align-items-center border-bottom ps-0"
                 >
-                    <div className="ms-2 me-auto">
-                        <div className="fw-bold">Table {table.id} - Status: {table.status}</div>
+                    <div className="me-auto">
+                        <div ><span className="fw-bold fs-4 me-1">Table {table.id}</span> - <span className="fw-bold ms-1">Status:</span> {table.status}</div>
                     </div>
                     <Button as={Link} bg="primary" to={`/table/${table.id}`}>
                         Show more
