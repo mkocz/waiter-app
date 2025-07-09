@@ -9,12 +9,12 @@ const TableList = () => {
     if (!tables.length) return <p>Loading...</p>;
 
     return (
-        <ListGroup as="ul" >
+        <ListGroup as="ul" className="list-group-flush">
             {tables.map(table => (
                 <ListGroup.Item
                     as="li"
                     key={table.id}
-                    className="d-flex justify-content-between align-items-start"
+                    className="d-flex justify-content-between align-items-start border-bottom"
                 >
                     <div className="ms-2 me-auto">
                         <div className="fw-bold">Table {table.id} - Status: {table.status}</div>

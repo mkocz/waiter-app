@@ -55,12 +55,9 @@ const TableForm = ({ tableData }) => {
 
     const handleMaxPeopleAmountChange = (e) => {
         const value = e.target.value;
-
         const newValue = value.replace(/^0+/g, '')
-        console.log(value, newValue)
 
         if (newValue >= 0 && newValue <= 10) {
-            console.log(parseInt(newValue))
             setMaxPeopleAmount(parseInt(newValue))
         }
     }
@@ -72,7 +69,6 @@ const TableForm = ({ tableData }) => {
             await dispatch(updateTableRequest({ id, status, peopleAmount, maxPeopleAmount, bill }))
             alert('Table details have been updated.')
             navigate("/");
-
         }
         catch (error) {
             console.log(error)
